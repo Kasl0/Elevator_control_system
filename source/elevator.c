@@ -17,6 +17,15 @@ void elevator_update(Elevator* elevator, floor current_floor, floor target_floor
     elevator -> target_floor = target_floor;
 }
 
+void elevator_step(Elevator* elevator) {
+
+    if (elevator -> current_floor != elevator -> target_floor) {
+
+        if (elevator -> target_floor - elevator -> current_floor > 0) elevator -> current_floor++;
+        else elevator -> current_floor--;
+    }
+}
+
 StatusTuple* elevator_status(Elevator* elevator) {
     StatusTuple* status_tuple = malloc(sizeof(StatusTuple));
 
