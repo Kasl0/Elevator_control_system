@@ -11,7 +11,8 @@ typedef struct {
 
     id ID;
     floor current_floor;
-    floor target_floor;
+    uint8_t no_target_floors;
+    floor* target_floors;
 
 } Elevator;
 
@@ -19,13 +20,15 @@ typedef struct {
 
     id elevator_ID;
     floor current_floor;
-    floor target_floor;
+    uint8_t no_target_floors;
+    floor* target_floors;
 
 } StatusTuple;
 
 // Elevator functions
 Elevator* elevator_init(id elevator_ID);
-void elevator_update(Elevator* elevator, floor current_floor, floor target_floor);
+uint8_t elevator_calculate_FS(Elevator* elevator, uint8_t no_floors, floor pickup_floor, direction direction);
+void elevator_add_target(Elevator* elevator, floor target_floor, direction direction);
 void elevator_step(Elevator* elevator);
 StatusTuple* elevator_status(Elevator* elevator);
 void elevator_free_memory(Elevator* elevator);

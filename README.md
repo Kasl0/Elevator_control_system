@@ -26,12 +26,14 @@ The project consists of files (located in source folder):
   - For example, an interrupt caused by clicking a physical button can call pickup() function with current floor and direction arguments
 ### Allowed commands in the REPL:
   - **pickup <pickup_floor_number> <direction>**
-    - adds new Order to the ElevatorSystem
+    - calculates FSs, selects an Elevator and adds pickup_floor to it's planned route
+    - imitates calling an elevator (we choose the direction of travel)
     - negative direction value means going down, positive means going up
     - e.g. "pickup 3 -1"
-  - **update <elevator_id> <current_floor_number> <target_floor_number>**
-    - updates struct fields of Elevator with the given ID in ElevatorSystem
-    - e.g. "update 0 0 10"
+  - **update <elevator_id> <target_floor_number>**
+    - adds target_floor to Elevator's planned route
+    - imitates selection of the target floor inside the elevator
+    - e.g. "update 0 10"
   - **step**
     - performs a simulation step
   - **status**

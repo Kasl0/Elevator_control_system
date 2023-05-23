@@ -9,7 +9,7 @@
 int main(int argc, char* argv[]) {
 
     ElevatorSystem* elevator_system = malloc(sizeof(ElevatorSystem*));
-    init(elevator_system, (uint8_t) atoi(argv[1]));
+    init(elevator_system, (uint8_t) atoi(argv[1]), (uint8_t) atoi(argv[2]));
 
     char command[MAX_COMMAND_LEN];
 
@@ -36,13 +36,10 @@ int main(int argc, char* argv[]) {
             word = strtok(NULL, " ");
             id elevator_id = (id) atoi(word);
 
-            word = strtok(NULL, " ");
-            floor current_floor = (floor) atoi(word);
-
             word = strtok(NULL, "\n");
             floor target_floor = (floor) atoi(word);
             
-            update(elevator_system, elevator_id, current_floor, target_floor);
+            update(elevator_system, elevator_id, target_floor);
         }
 
         else if(strcmp(word, "step\n") == 0) {
@@ -63,7 +60,7 @@ int main(int argc, char* argv[]) {
         }
         
         else {
-            printf("Unknown command: %s", command);
+            printf("Unknown command: %s\n", command);
         }
     }
     
