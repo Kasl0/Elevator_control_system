@@ -53,6 +53,11 @@ int main(int argc, char* argv[]) {
             print_status(elevator_system);
         }
 
+        else if(strcmp(word, "exit\n") == 0) {
+            free_memory(elevator_system);
+            break;
+        }
+
         else if(strcmp(word, "\n") == 0) {
             continue;
         }

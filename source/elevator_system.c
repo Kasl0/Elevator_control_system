@@ -82,5 +82,15 @@ void print_status(ElevatorSystem* elevator_system) {
 
     for (uint8_t i=0; i<elevator_system->no_elevators; i++) {
         printf("ID: %d, Current floor: %d, Target floor: %d\n", tuple_colection[i] -> elevator_ID, tuple_colection[i] -> current_floor, tuple_colection[i] -> target_floor);
+        free(tuple_colection[i]);
     }
+    free(tuple_colection);
+}
+
+void free_memory(ElevatorSystem* elevator_system) {
+    for (uint8_t i=0; i<elevator_system->no_elevators; i++) {
+        elevator_free_memory(elevator_system->elevators[i]);
+    }
+    free(elevator_system->elevators);
+    free(elevator_system);
 }

@@ -35,3 +35,7 @@ StatusTuple* elevator_status(Elevator* elevator) {
 
     return status_tuple;
 }
+
+void elevator_free_memory(Elevator* elevator) {
+    free(elevator);
+}

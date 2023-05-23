@@ -36,5 +36,7 @@ The project consists of files (located in source folder):
     - performs a simulation step
   - **status**
     - prints information about all Elevators in ElevatorSystem
+  - **exit**
+    - frees each Elevator's memory and ElevatorSystem memory and exits the program
 #### Each command have to be ended with an end-of-line character (enter must be pressed)
 #### Other commands (or misspelled commands) will not be recognized

@@ -29,5 +29,6 @@ int8_t update(ElevatorSystem* elevator_system, id elevator_id, floor current_flo
 void step(ElevatorSystem* elevator_system);                                                                 // performs a simulation step
 StatusTuple** status(ElevatorSystem* elevator_system);                                                      // returns array of StatusTuple with information about all Elevators in ElevatorSystem
 void print_status(ElevatorSystem* elevator_system);                                                         // prints information about all Elevators in ElevatorSystem
+void free_memory(ElevatorSystem* elevator_system);                                                          // frees each Elevator's memory and ElevatorSystem memory
 
 #endif
